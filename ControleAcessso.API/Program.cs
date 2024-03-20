@@ -1,6 +1,7 @@
 using ControleAcessso.API.Persistence;
 using ControleAcessso.API.Services.Implementations;
 using ControleAcessso.API.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,12 +12,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<ControleAcessoDbContext>();
+//builder.Services.AddSingleton<ControleAcessoDbContext>();
 
-builder.Services.AddScoped<IGrupoRelatorioService, GrupoRelatorioService>();
+builder.Services.AddDbContext<ControleAcessoDbContext>(options => options.UseInMemoryDatabase("ControleAcesso"));
+
+builder.Services.AddScoped<IGroupReportService, GroupReportService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IRelatorioService,RelatorioService>();
+builder.Services.AddScoped<IReportService,ReportService>();
 
 var app = builder.Build();
 

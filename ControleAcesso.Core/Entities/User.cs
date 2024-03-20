@@ -4,24 +4,25 @@ namespace ControleAcessso.API.Entities
 {
     public class User
     {
-        public User(int id, string nome, string login, string senha, int idGroup, StatusEnum status)
+        //public User(int id, string nome, string login, string senha, int idGroup, StatusEnum status)
+        //{
+        //    Id = id;
+        //    Nome = nome;
+        //    Login = login;
+        //    Senha = senha;
+        //    IdGroup = idGroup;
+
+        //    Status = status;
+        //}
+
+        public User(string nome, string login, string senha, int idGroup)
         {
-            Id = id;
             Nome = nome;
             Login = login;
             Senha = senha;
             IdGroup = idGroup;
 
-            Status = status;
-        }
-
-        public User(string nome, string login, string senha, int idGroup, StatusEnum status)
-        {
-            Nome = nome;
-            Login = login;
-            Senha = senha;
-            IdGroup = idGroup;
-            Status = status;
+            Status = StatusEnum.Ativo;
         }
 
         public int Id { get; set; }

@@ -62,8 +62,8 @@ namespace ControleAcessso.API.Persistence
 
         public DbSet<User> Users { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public DbSet<Report> Relatorios { get; set; }
-        public DbSet<GroupReport> GruposRelatorios { get; set; }
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<GroupReport> GroupsReports { get; set; }
         //public List<UserViewModel> UserViewModels { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

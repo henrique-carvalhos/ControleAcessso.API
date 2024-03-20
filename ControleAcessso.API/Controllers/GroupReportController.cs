@@ -6,10 +6,10 @@ namespace ControleAcessso.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GrupoRelatorioController : ControllerBase
+    public class GroupReportController : ControllerBase
     {
-        private readonly IGrupoRelatorioService _grupoRelatorioService;
-        public GrupoRelatorioController(IGrupoRelatorioService grupoRelatorioService)
+        private readonly IGroupReportService _grupoRelatorioService;
+        public GroupReportController(IGroupReportService grupoRelatorioService)
         {
             _grupoRelatorioService = grupoRelatorioService;
         }

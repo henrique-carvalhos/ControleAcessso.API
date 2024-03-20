@@ -4,19 +4,19 @@ using ControleAcessso.API.Services.Interfaces;
 
 namespace ControleAcessso.API.Services.Implementations
 {
-    public class RelatorioService : IRelatorioService
+    public class GroupReportService : IGroupReportService
     {
         private readonly ControleAcessoDbContext _dbContext;
-        public RelatorioService(ControleAcessoDbContext dbContext)
+        public GroupReportService(ControleAcessoDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public List<Report> GetAll()
+        public List<GroupReport> GetAll()
         {
-            var relatorios = _dbContext.Relatorios;
+            var grupoRelatorio = _dbContext.GroupsReports;
 
-            return relatorios.ToList();
+            return grupoRelatorio.ToList();
         }
     }
 }

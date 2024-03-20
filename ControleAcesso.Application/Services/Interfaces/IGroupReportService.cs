@@ -2,8 +2,8 @@
 
 namespace ControleAcessso.API.Services.Interfaces
 {
-    public interface IRelatorioService
+    public interface IGroupReportService
     {
-        List<Report> GetAll();
+        List<GroupReport> GetAll();
     }
 }
