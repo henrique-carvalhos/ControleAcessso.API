@@ -12,7 +12,7 @@ namespace ControleAcessso.API.Services.Implementations
             _dbContext = dbContext;
         }
 
-        public List<GrupoRelatorio> GetAll()
+        public List<GroupReport> GetAll()
         {
             var grupoRelatorio = _dbContext.GruposRelatorios;
 

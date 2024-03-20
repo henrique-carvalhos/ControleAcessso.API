@@ -1,5 +1,6 @@
 ﻿using ControleAcessso.API.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace ControleAcessso.API.Persistence
 {
@@ -56,15 +57,18 @@ namespace ControleAcessso.API.Persistence
             //    new(8,6,8) 
             //};
             #endregion
-
-
         }
 
 
         public DbSet<User> Users { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public DbSet<Relatorio> Relatorios { get; set; }
-        public DbSet<GrupoRelatorio> GruposRelatorios { get; set; }
+        public DbSet<Report> Relatorios { get; set; }
+        public DbSet<GroupReport> GruposRelatorios { get; set; }
         //public List<UserViewModel> UserViewModels { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }

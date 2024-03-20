@@ -15,7 +15,7 @@ namespace ControleAcessso.API.Services.Implementations
         {
             var groups = _dbcontext.Groups;
 
-            return groups;
+            return groups.ToList();
         }
     }
 }

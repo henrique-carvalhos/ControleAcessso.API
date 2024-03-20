@@ -12,7 +12,7 @@ namespace ControleAcessso.API.Services.Implementations
             _dbContext = dbContext;
         }
 
-        public List<Relatorio> GetAll()
+        public List<Report> GetAll()
         {
             var relatorios = _dbContext.Relatorios;
 

@@ -1,8 +1,8 @@
 ﻿namespace ControleAcessso.API.Entities
 {
-    public class Relatorio
+    public class Report
     {
-        public Relatorio(int id, string codRelatorio, string descricao)
+        public Report(int id, string codRelatorio, string descricao)
         {
             Id = id;
             CodRelatorio = codRelatorio;

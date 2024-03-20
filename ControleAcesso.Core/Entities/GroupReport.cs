@@ -1,8 +1,8 @@
 ﻿namespace ControleAcessso.API.Entities
 {
-    public class GrupoRelatorio
+    public class GroupReport
     {
-        public GrupoRelatorio(int id, int idGroup, int idRelatorio)
+        public GroupReport(int id, int idGroup, int idRelatorio)
         {
             Id = id;
             IdGroup = idGroup;
@@ -11,6 +11,8 @@
 
         public int Id { get; set; }
         public int IdGroup { get; set; }
+        public Group Group { get; set; }
         public int IdRelatorio { get; set; }
+        public Report Relatorio { get; set; }
     }
 }

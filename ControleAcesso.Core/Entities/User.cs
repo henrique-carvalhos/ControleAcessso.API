@@ -29,8 +29,8 @@ namespace ControleAcessso.API.Entities
         public string Login { get; set; }
         public string Senha { get; set; }
         public int IdGroup { get; set; }
+        public Group Group { get; set; }
         public StatusEnum Status { get; set; }
-        //public Group Group { get; set; }
 
         public void Update(string nome, string login, string senha, int idGroup)
         {

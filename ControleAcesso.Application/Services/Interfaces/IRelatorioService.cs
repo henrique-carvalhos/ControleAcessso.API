@@ -4,6 +4,6 @@ namespace ControleAcessso.API.Services.Interfaces
 {
     public interface IRelatorioService
     {
-        List<Relatorio> GetAll();
+        List<Report> GetAll();
     }
 }
