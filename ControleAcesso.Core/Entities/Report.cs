@@ -4,7 +4,6 @@
     {
         public Report(int id, string codRelatorio, string descricao)
         {
-            Id = id;
             CodRelatorio = codRelatorio;
             Descricao = descricao;
         }

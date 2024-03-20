@@ -8,7 +8,6 @@ namespace ControleAcessso.API.Services.Interfaces
     {
         List<User> GetAll();
         List<UserViewModel> GetAllViewModel(int id);
-
         void Update(UpdateUserInputModel inputModel);
         void Delete(int id);
         int Create(NewUserInputModel inputModel);
