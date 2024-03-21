@@ -38,16 +38,12 @@ namespace ControleAcessso.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id}, inputModel);
         }
 
-        [HttpPut]
-        public IActionResult Put()
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] UpdateGroupReportInputModel inputModel)
         {
-            return Ok();
-        }
+            _groupReportService.Update(inputModel);
 
-        [HttpDelete]
-        public IActionResult Delete()
-        {
-            return Ok();
+            return NoContent();
         }
     }
 }

@@ -10,5 +10,6 @@ namespace ControleAcessso.API.Services.Interfaces
         List<GroupReport> GetAll();
         List<GroupReportViewModel> GetById(int id);
         int Create(NewGroupReportInputModel inputModel);
+        void Update(UpdateGroupReportInputModel inputModel);
     }
 }

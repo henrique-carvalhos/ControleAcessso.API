@@ -33,17 +33,13 @@ namespace ControleAcessso.API.Services.Implementations
 
         public List<GroupReportViewModel> GetById(int id)
         {
-            // Consulta para obter todos os GroupReports com o idGroup correspondente
             var groupReports = _dbContext.GroupsReports.Where(r => r.IdGroup == id).ToList();
 
-            // Verifica se a lista de groupReports está vazia, o que significa que não foram encontrados registros
             if (groupReports.Count == 0)
                 return null;
 
-            // Cria uma lista de GroupReportViewModel para armazenar os resultados
             var groupReportViewModels = new List<GroupReportViewModel>();
 
-            // Itera sobre os groupReports encontrados e cria um GroupReportViewModel para cada um
             foreach (var groupReport in groupReports)
             {
                 var groupReportViewModel = new GroupReportViewModel
@@ -58,5 +54,13 @@ namespace ControleAcessso.API.Services.Implementations
             return groupReportViewModels;
         }
 
+        public void Update(UpdateGroupReportInputModel inputModel)
+        {
+            var groupReport = _dbContext.GroupsReports.SingleOrDefault(u => u.Id == inputModel.Id);
+
+            groupReport?.Update(inputModel.IdGroup, inputModel.IdRelatorio);
+
+            _dbContext.SaveChanges();
+        }
     }
 }

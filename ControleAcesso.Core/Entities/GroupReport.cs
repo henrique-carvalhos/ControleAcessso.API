@@ -13,5 +13,11 @@
         public Group Group { get; set; }
         public int IdRelatorio { get; set; }
         public Report Relatorio { get; set; }
+
+        public void Update(int idGroup, int idRelatorio)
+        {
+            IdGroup = idGroup;
+            IdRelatorio = idRelatorio;
+        }
     }
 }
