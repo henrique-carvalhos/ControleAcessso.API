@@ -1,5 +1,4 @@
 ﻿using ControleAcessso.API.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleAcessso.API.Controllers

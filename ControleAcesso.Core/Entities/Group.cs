@@ -4,7 +4,6 @@
     {
         public Group(int id, string descricao)
         {
-            Id = id;
             Descricao = descricao;
         }
 
