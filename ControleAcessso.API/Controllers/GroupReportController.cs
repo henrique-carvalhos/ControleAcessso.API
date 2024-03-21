@@ -1,30 +1,41 @@
-﻿using ControleAcessso.API.Services.Interfaces;
+﻿using ControleAcesso.Application.InputModels;
+using ControleAcessso.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleAcessso.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/groupsReports")]
     [ApiController]
     public class GroupReportController : ControllerBase
     {
-        private readonly IGroupReportService _grupoRelatorioService;
-        public GroupReportController(IGroupReportService grupoRelatorioService)
+        private readonly IGroupReportService _groupReportService;
+        public GroupReportController(IGroupReportService groupReportService)
         {
-            _grupoRelatorioService = grupoRelatorioService;
+            _groupReportService = groupReportService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var grupoRelatorio = _grupoRelatorioService.GetAll();
+            var grupoRelatorio = _groupReportService.GetAll();
 
             return Ok(grupoRelatorio);
         }
 
-        [HttpPost]
-        public IActionResult Post()
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
         {
-            return Ok();
+            var group = _groupReportService.GetById(id);
+
+            return Ok(group);
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] NewGroupReportInputModel inputModel)
+        {
+            var id = _groupReportService.Create(inputModel);
+
+            return CreatedAtAction(nameof(GetById), new { id = id}, inputModel);
         }
 
         [HttpPut]

@@ -1,4 +1,5 @@
-﻿using ControleAcessso.API.Services.Interfaces;
+﻿using ControleAcesso.Application.InputModels;
+using ControleAcessso.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleAcessso.API.Controllers
@@ -20,22 +21,35 @@ namespace ControleAcessso.API.Controllers
             return Ok(groups);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var groups = _groupService.GetById(id);
+            return Ok(groups);
+        }
+
         [HttpPost]
-        public IActionResult Post()
+        public IActionResult Post([FromBody] NewGroupInputModel inputModel)
         {
-            return Ok();
+            var id = _groupService.Create(inputModel);
+
+            return CreatedAtAction(nameof(GetById), new { id = id }, inputModel);
         }
 
-        [HttpPut]
-        public IActionResult Put()
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] UpdateGroupInputModel inputModel)
         {
-            return Ok();
+            _groupService.Update(inputModel);
+
+            return NoContent();
         }
 
-        [HttpDelete]
-        public IActionResult Delete()
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            return Ok();
+            _groupService.Delete(id);
+
+            return NoContent();
         }
     }
 }

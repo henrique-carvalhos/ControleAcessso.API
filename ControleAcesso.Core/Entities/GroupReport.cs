@@ -2,9 +2,8 @@
 {
     public class GroupReport
     {
-        public GroupReport(int id, int idGroup, int idRelatorio)
+        public GroupReport(int idGroup, int idRelatorio)
         {
-            Id = id;
             IdGroup = idGroup;
             IdRelatorio = idRelatorio;
         }
